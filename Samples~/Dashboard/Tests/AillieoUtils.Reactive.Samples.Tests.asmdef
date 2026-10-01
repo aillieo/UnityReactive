@@ -1,0 +1,13 @@
+{
+    "name": "AillieoUtils.Reactive.Samples.Tests",
+    "rootNamespace": "AillieoUtils.Reactive.Samples.Tests",
+    "references": [
+        "AillieoUtils.Reactive.Core",
+        "AillieoUtils.Reactive.Unity",
+        "AillieoUtils.Reactive.Samples",
+        "UnityEngine.UI"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}

@@ -1,0 +1,1 @@
+{"name":"AillieoUtils.Reactive.EditMode.Tests","rootNamespace":"AillieoUtils.Reactive.Tests","references":["AillieoUtils.Reactive.Core","AillieoUtils.Reactive.Unity","UnityEngine.UI"],"includePlatforms":["Editor"],"optionalUnityReferences":["TestAssemblies"]}

@@ -1,0 +1,29 @@
+{
+  "name": "com.aillieo.reactive",
+  "version": "0.2.0",
+  "displayName": "Reactive",
+  "description": "A lightweight reactive state framework for Unity with compile-time model generation and Unity/uGUI integrations.",
+  "unity": "2022.3",
+  "license": "MIT",
+  "documentationUrl": "https://github.com/aillieo/UnityReactive#readme",
+  "licensesUrl": "https://github.com/aillieo/UnityReactive/blob/master/LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aillieo/UnityReactive.git"
+  },
+  "author": {
+    "name": "Aillieo",
+    "email": "aillieo@163.com",
+    "url": "https://github.com/aillieo"
+  },
+  "dependencies": {
+    "com.unity.ugui": "1.0.0"
+  },
+  "samples": [
+    {
+      "displayName": "Reactive Dashboard",
+      "description": "Examples of generated reactive models, frame/timer streams, computed values, batching, and uGUI bindings.",
+      "path": "Samples~/Dashboard"
+    }
+  ]
+}

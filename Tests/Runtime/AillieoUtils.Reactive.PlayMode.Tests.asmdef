@@ -1,0 +1,12 @@
+{
+    "name": "AillieoUtils.Reactive.PlayMode.Tests",
+    "rootNamespace": "AillieoUtils.Reactive.Tests",
+    "references": [
+        "AillieoUtils.Reactive.Core",
+        "AillieoUtils.Reactive.Unity",
+        "UnityEngine.UI"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}
