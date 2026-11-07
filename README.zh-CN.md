@@ -14,7 +14,7 @@
 在 Unity Package Manager 中选择 **Add package from git URL...**，输入：
 
 ```text
-https://github.com/aillieo/UnityReactive.git#v0.2.0
+https://github.com/aillieo/UnityReactive.git#v0.2.1
 ```
 
 ## 快速开始

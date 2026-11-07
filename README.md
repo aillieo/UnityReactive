@@ -14,7 +14,7 @@ A lightweight reactive state library for Unity, featuring reactive properties, c
 In Unity Package Manager, select **Add package from git URL...** and enter:
 
 ```text
-https://github.com/aillieo/UnityReactive.git#v0.2.0
+https://github.com/aillieo/UnityReactive.git#v0.2.1
 ```
 
 ## Quick Start
