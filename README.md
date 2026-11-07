@@ -24,22 +24,34 @@ using AillieoUtils.Reactive;
 using AillieoUtils.Reactive.Unity;
 using UnityEngine;
 
-var scope = new ReactiveScope();
-var gold = Rx.Property(100);
-var price = Rx.Property(30);
-var canBuy = scope.Add(Rx.Computed(() => gold.Value >= price.Value));
-
-scope.Observe(() =>
-    Debug.Log($"Gold={gold.Value}, CanBuy={canBuy.Value}"));
-
-Rx.Batch(() =>
+public sealed class ReactiveExample : MonoBehaviour
 {
-    gold.Value -= 30;
-    price.Value = 50;
-});
+    private void Start()
+    {
+        var scope = new ReactiveScope();
+        scope.AddTo(gameObject);
 
-// Dispose the scope and its subscriptions when the GameObject is destroyed.
-scope.AddTo(gameObject);
+        var gold = Rx.Property(100);
+        var price = Rx.Property(30);
+        var canBuy = scope.Add(Rx.Computed(() => gold.Value >= price.Value));
+
+        scope.Observe(() =>
+            Debug.Log($"Gold={gold.Value}, CanBuy={canBuy.Value}"));
+
+        Rx.Batch(() =>
+        {
+            gold.Value -= 30;
+            price.Value = 80;
+        });
+    }
+}
+```
+
+Attach `ReactiveExample` to a GameObject. The Console first prints immediately, then prints the batched result during `LateUpdate`:
+
+```text
+Gold=100, CanBuy=True
+Gold=70, CanBuy=False
 ```
 
 `Observe` runs immediately when created. Later changes are batched and flushed during Unity `LateUpdate`. Access reactive state and subscriptions from the Unity main thread.

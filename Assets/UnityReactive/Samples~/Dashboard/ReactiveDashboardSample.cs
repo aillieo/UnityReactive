@@ -131,7 +131,7 @@ namespace AillieoUtils.Reactive.Samples
             var layout = content.AddComponent<UnityEngine.UI.VerticalLayoutGroup>();
             layout.spacing = 12; layout.childControlHeight = true; layout.childForceExpandHeight = false;
             layout.childControlWidth = true; layout.childForceExpandWidth = true;
-            this.Label(content.transform, "REACTIVE LAB", 30, this.foreground, 42);
+            this.Label(content.transform, "REACTIVE DASHBOARD", 30, this.foreground, 42);
             this.Label(content.transform, "Change the model. See computed state and collection bindings update.", 17, this.muted, 30);
             var cards = this.Row(content.transform, "Metrics", 86);
             this.healthText = this.Card(cards.transform, "HEALTH", "80 / 100");

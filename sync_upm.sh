@@ -280,7 +280,11 @@ else
     if [[ -n "$PARENT_COMMIT" ]]; then
         RELEASE_COMMIT=$(printf '%s' "$COMMIT_MESSAGE" \
             | git commit-tree "$RELEASE_TREE" -p "$PARENT_COMMIT")
-        git update-ref "refs/heads/$UPM_BRANCH" "$RELEASE_COMMIT" "$PARENT_COMMIT"
+        if [[ "$LOCAL_BRANCH_EXISTS" == "true" ]]; then
+            git update-ref "refs/heads/$UPM_BRANCH" "$RELEASE_COMMIT" "$PARENT_COMMIT"
+        else
+            git update-ref "refs/heads/$UPM_BRANCH" "$RELEASE_COMMIT"
+        fi
     else
         RELEASE_COMMIT=$(printf '%s' "$COMMIT_MESSAGE" \
             | git commit-tree "$RELEASE_TREE")

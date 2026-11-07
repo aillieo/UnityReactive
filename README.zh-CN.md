@@ -24,22 +24,34 @@ using AillieoUtils.Reactive;
 using AillieoUtils.Reactive.Unity;
 using UnityEngine;
 
-var scope = new ReactiveScope();
-var gold = Rx.Property(100);
-var price = Rx.Property(30);
-var canBuy = scope.Add(Rx.Computed(() => gold.Value >= price.Value));
-
-scope.Observe(() =>
-    Debug.Log($"Gold={gold.Value}, CanBuy={canBuy.Value}"));
-
-Rx.Batch(() =>
+public sealed class ReactiveExample : MonoBehaviour
 {
-    gold.Value -= 30;
-    price.Value = 50;
-});
+    private void Start()
+    {
+        var scope = new ReactiveScope();
+        scope.AddTo(gameObject);
 
-// GameObject 销毁时释放 scope 及其持有的订阅。
-scope.AddTo(gameObject);
+        var gold = Rx.Property(100);
+        var price = Rx.Property(30);
+        var canBuy = scope.Add(Rx.Computed(() => gold.Value >= price.Value));
+
+        scope.Observe(() =>
+            Debug.Log($"Gold={gold.Value}, CanBuy={canBuy.Value}"));
+
+        Rx.Batch(() =>
+        {
+            gold.Value -= 30;
+            price.Value = 80;
+        });
+    }
+}
+```
+
+将 `ReactiveExample` 挂到一个 GameObject 上。Console 会先立即输出初始状态，再在 `LateUpdate` 输出批处理结果：
+
+```text
+Gold=100, CanBuy=True
+Gold=70, CanBuy=False
 ```
 
 `Observe` 创建时会立即执行一次；后续变化默认在 Unity `LateUpdate` 批量刷新。所有状态访问和订阅操作应在 Unity 主线程完成。
